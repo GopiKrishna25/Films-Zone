@@ -1,0 +1,981 @@
+<!DOCTTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Films Zone</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>    
+    
+    <script type="text/javascript">
+        $(function()
+        {
+          $(window).scroll(function()
+            {
+                if($(this).scrollTop()>205)
+                    {
+                        $("#scroll-top").fadeIn(500);
+                    }
+                else
+                    {
+                        $("#scroll-top").fadeOut(500);
+                    }
+            });
+        $("#scroll-top").click(function()                    
+        {
+         $("html, body").animate({ scrollTop: "0"},500)   
+        });
+        
+        });
+        
+    </script>
+    
+    
+</head>
+
+<style>
+
+body
+    {
+        width: 1050px;
+        margin: 40px auto;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.8),rgba(0,0,0,0.6))fixed;
+        font-family: tahoma;
+        padding: 0;
+    }
+#top
+    {
+        width: 1050px;
+        height: 120px;
+        background: white;
+        color: black;
+        line-height: 120px;
+        text-align: center;
+        border: 1px solid lightgreen;
+        border-bottom: none;
+    }
+#header
+    {
+        width: 1050px;
+        height: 50px;
+        
+        background: white;
+        border: 1px solid lightgreen;
+    }
+.logo
+    {
+        width: 180px;
+        height: 50px;
+        border-right: 1px solid lightgreen;
+        float: left;
+        text-align: center;
+        font-size: 20px;
+        line-height: 50px;
+    }
+.logo a
+    {
+       text-decoration: none;
+    }
+.logo span
+    {
+        color: lightgreen;
+        transition: 1s;
+    }
+.logo span span
+    {
+        color: black;
+        transition: 1s;
+    }
+.logo:hover span
+    {
+        color: black;
+        transition: 1s;
+    }
+.logo:hover span span
+    {
+        color: lightgreen;
+        transition: 1s;
+    }
+.search-box
+    {
+        width: 600px;
+        height: 50px;
+        float: left;
+    }
+.search-box input
+    {
+        border: none;
+        outline: none;
+        height: 35px;
+        margin: 7.5px 7.5px;
+        position: absolute;
+        padding-left: 36px;
+        background: white;
+        color: black;
+        font-size: 16px;
+        padding-top: 3px;
+        transition: 1s;
+    }
+.search-box input:focus
+    {
+        width: 849px;
+        background: #757775;
+        transition: 1s;
+    }
+.search-box i
+    {
+        position: relative;
+        margin: 16px 15px;
+        color: black;
+        font-size:20px;
+    }
+.login-register
+    {
+        width: 120px;
+        height: 50px;
+        float: left;
+        text-align: center;
+        font-size: 24px;
+        line-height: 50px;
+        cursor: pointer;
+        color: black;
+        margin-left: 149px;
+    }
+.login
+    {
+        width: 60px;
+        height: 50px;
+        float: left;
+    }
+.login i
+    {
+        line-height: 48px;
+        transition: 1s;
+    }
+.login i:hover
+    {
+        color: lightgreen;
+        transition: 1s;
+    }
+.register
+    {
+        width: 60px;
+        height: 50px;
+        float: left;
+    }
+.register i
+    {
+        line-height: 48px;
+        transition: 1s;
+    }
+.register i:hover
+    {
+        color: lightgreen;
+        transition: 1s;
+    }
+#menu
+    {
+        width: 1050px;
+        height: 45px;
+        float: left;
+        background: #262626;
+        border: 1px solid lightGreen;
+        border-top: none;
+        line-height: 15px;
+    }    
+#menu ul
+    {
+        width: 800px;
+        float: left;
+        margin-left: -25px;
+    }
+#menu ul li
+    {
+        float: left;
+        margin-left: 15px;
+        list-style-type: none;
+        border-right: 1px solid lightgreen;
+        padding-right: 15px;
+    }
+#menu ul li a
+    {
+        text-decoration: none;
+        color: white;
+    }
+#menu ul li:hover a
+    {
+        color: lightgreen;
+        transition: 1s;
+    }
+#middle
+    {
+        width: 1050px;
+        height: 120px;
+        color: black;
+        text-align: center;
+        line-height: 120px;
+        background: white;
+        border: 1px solid lightgreen;
+        border-top: none;
+        padding-bottom: 50px;
+    }
+#content
+    {
+        width: 1050px;
+        min-height: 1550px;
+        background: white;
+        float: left;
+        border: 1px solid lightgreen;
+        border-bottom: none;
+        border-top: none;
+    }
+.content-left
+    {
+        width: 750px;
+        min-height: 1550px;
+        float: left;
+        border-right: 1px solid lightgreen;
+        border-bottom: 1px solid lightgreen;
+    }
+.page-title
+    {
+        width: 750px;
+        height: 50px;
+        float: left;
+        border-bottom: 1px solid lightgreen;
+    }
+.page-title h5
+    {
+        border-left: 5px solid lightgreen;
+        padding-left: 10px;
+        height: 30px;
+        margin: 10px 12px;
+        line-height: 30px;
+        color: black;
+    }
+.movie-area
+    {
+        width: 700px;
+        min-height: 1766px;
+        padding: 0;
+        align-items: center;
+    }
+    
+    
+.movie-description img
+    {
+        width: 400px;
+        height: 680px;
+        margin-left: 182px;
+        margin-right: 182px;
+        margin-top: 45px;
+        border: 5px solid black;
+    }
+.movie-description h3
+    {
+        font-size: 30px;
+        font-family: 'Roboto', sans-serif, 'Arial';
+        font-weight: normal;
+        text-align: center;
+        margin-left: 16px;
+    }
+.movie-description p
+    {
+        font-size: 17px;
+        font-family: 'Roboto', sans-serif, 'Arial';
+        font-weight: 500;
+        text-align: center;
+        line-height: 1.5;
+    }
+#img2
+    {
+        width: 720px;
+        height: 1149px;
+        margin: 10px;
+    }
+.buttn
+    {
+        line-height: 25px;
+        font-size: 15px;
+        font-weight: bold;
+        text-transform: uppercase;
+        border-radius: 1px;
+        padding: 9px 14px 9px 0;
+        margin-right: 10px;
+        margin-bottom: 15px;
+        opacity: .96;
+        margin-top: 10px;
+        display: inline-block;
+    }
+    
+ .red
+    {
+        color: white;
+        border: 2px solid red;
+        padding-left: 37px;
+        background: url(https://i.imgur.com/yG5Xdqq.png) #085990 no-repeat -1px 0;
+        text-align: center;
+        text-decoration: none;
+        margin-left: 90px;
+        webkit box-sizing: border-box;
+    }
+    
+    
+    
+.content-right
+    {
+        width: 299px;
+        height: 1766px;
+        float: left;
+        background: white;
+        border-bottom: 1px solid lightgreen;
+    }
+.page-title2
+    {
+        width: 298px;
+        height: 50px;
+        background: white;
+        float: left;
+        border-bottom: 1px solid lightgreen; 
+    }
+.page-title2#active
+    {
+        border-top: 1px solid lightgreen;
+    }
+.page-title2 h5
+    {
+        border-left: 5px solid lightgreen;
+        padding-left: 10px;
+        height: 30px;
+        margin: 10px 12px;
+        line-height: 30px;
+        color: black;
+    }
+.alert
+    {
+        width: 278px;
+        height: 29px;
+        font-size: 11.6px;
+        color: black;
+        line-height: 30px;
+        margin-top: 50px;
+        margin-left: 10px;
+    }
+.form
+    {
+        width: 298px;
+        height: 265px;
+    }
+.form select
+    {
+        width: 272px;
+        outline: none;
+        margin-left: 13px;
+        margin-top: 10px;
+        height: 30px;
+    }
+#buttons
+    {
+        width: 278px;
+        height: 30px;
+        margin: 15px 14px;
+    }
+.subbtn
+    {
+        width: 160px;
+        height: 30px;
+        outline: none;
+        border-radius: 8px;
+        border: 1px solid #afbbc7;
+        cursor: pointer;
+        background: linear-gradient(to bottom, #ffffff 0%, #d3dfe3 100%);
+    }
+.resbtn
+    {
+        width: 104.5px;
+        height: 30px;
+        outline: none;
+        border-radius: 8px;
+        border: 1px solid #afbbc7;
+        cursor: pointer;
+        background: linear-gradient(to bottom, #ffffff 0%, #d3dfe3 100%);
+    }
+.subbtn:hover
+    {
+        background: linear-gradient(to bottom, #ffffff 0%, #e6eff2 100%);
+    }
+.resbtn:hover
+    {
+        background: linear-gradient(to bottom, #ffffff 0%, #e6eff2 100%);
+    }
+    
+#Movie-Types
+    {
+        width: 298px;
+        margin-bottom: 10px;
+        height: 420px;
+        border: 1px solid lightgreen;
+        background: white;
+        margin: 27px -1px;
+        border-bottom: none;
+        border-right: none;
+    }
+#Movie-Types ul
+    {
+        width: 278px;
+        float: left;
+        padding: 0;
+        margin-left: 10px;
+        border-left: 1px solid lightgreen;
+        border-top: 1px solid lightgreen;
+    }
+#Movie-Types ul li
+    {
+        height: 1.5em;
+        line-height: 1.5em;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        list-style-type: none;
+        width: 137.5px;
+        font-size: 12px;
+        float: left;
+        padding: 10px 0 10px 0;
+        border: 1px solid lightgreen;
+        border-left: none;
+        border-top: none;
+    }
+#Movie-Types ul li a
+    {
+        text-decoration: none;
+        color: black;
+        margin-left: 7px;
+        mix-blend-mode: hard-light;
+    }
+#Movie-Types ul li:before
+    {
+        content: '';
+        position: absolute;
+        width: 3.9em;
+        height: inherit;
+        background: lightgreen;
+        top: 0;
+        left: -3.9em;
+        height: 38px;
+        transition: 0.4s;
+    }
+#Movie-Types ul li:hover:before
+    {
+        transform: scale(7);
+    } 
+    
+#Filters
+    {
+        width: 298px;
+        margin-bottom: 10px;
+        height: 220px;
+        border: 1px solid lightgreen;
+        background: white;
+        margin: 27px -1px;
+        border-bottom: none;
+        border-right: none;
+    }
+#Filters ul
+    {
+        width: 278px;
+        float: left;
+        padding: 0;
+        margin-left: 10px;
+        border-left: 1px solid lightgreen;
+        border-top: 1px solid lightgreen;
+    }
+#Filters ul li
+    {
+        height: 1.5em;
+        line-height: 1.5em;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        list-style-type: none;
+        width: 137.5px;
+        font-size: 12px;
+        float: left;
+        padding: 10px 0 10px 0;
+        border: 1px solid lightgreen;
+        border-left: none;
+        border-top: none;
+    }
+#Filters ul li a
+    {
+        text-decoration: none;
+        color: black;
+        mix-blend-mode: hard-light;
+        margin-left: 7px;
+        
+    }
+#Filters ul li:before
+    {
+        content: '';
+        position: absolute;
+        width: 3.9em;
+        height: inherit;
+        background: lightgreen;
+        top: 0;
+        left: -3.9em;
+        height: 38px;
+        transition: 0.4s;
+    }
+#Filters ul li:hover:before
+    {
+        transform: scale(7);
+    }
+       
+#Movie-Year
+    {
+        width: 298px;
+        margin-bottom: 10px;
+        height: 200px;
+        border: 1px solid lightgreen;
+        background: white;
+        margin: 27px -1px;
+        border-bottom: none;
+        border-right: none;
+        border-top: none;
+    }
+#Movie-Year ul
+    {
+        width: 278px;
+        float: left;
+        padding: 0;
+        margin-left: 10px;
+        border-left: 1px solid lightgreen;
+        border-top: 1px solid lightgreen;
+    }
+#Movie-Year ul li
+    {
+        height: 1.5em;
+        line-height: 1.5em;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        list-style-type: none;
+        width: 138px;
+        font-size: 12px;
+        float: left;
+        padding: 10px 0 10px 0;
+        border: 1px solid lightgreen;
+        border-left: none;
+        border-top: none;
+    }
+#Movie-Year ul li a
+    {
+        text-decoration: none;
+        color: black;
+        margin-left: 7px;
+        mix-blend-mode: hard-light;
+    }
+#Movie-Year ul li:before
+    {
+        content: '';
+        position: absolute;
+        width: 3.9em;
+        height: inherit;
+        background: lightgreen;
+        color: white;
+        top: 0;
+        left: -3.9em;
+        height: 38px;
+        transition: 0.4s;
+    }
+#Movie-Year ul li:hover:before
+    {
+        transform: scale(7);
+        color: white;
+    }
+
+
+
+#pagination
+    {
+        width: 750px;
+        height: 700px;
+        background: white;
+        float: left;
+        border: 1px solid lightgreen;
+        border-top: none;
+        margin-top: 20px;
+        margin-bottom: 40px;
+        
+    }
+.related
+    {
+        border-bottom: 5px solid lightgreen;
+        height: 40px;
+        padding: 5px 10px;
+    }
+.related h5
+    {
+        border-left: 5px solid lightgreen;
+        padding-left: 10px;
+        height: 30px;
+        margin: 5px 5px;
+        line-height: 30px;
+        color: black;
+    }
+.related-movies
+    {
+        padding: 25px 7px;
+        display: block;
+    }
+.movies
+    {
+        float: left;
+        padding: 7px;
+        margin-bottom: 45px;
+    }
+.movies img
+    {
+        width: 165px;
+        height: 287px;
+        transition: transform .2s;
+    }
+.movies img:hover 
+    {
+      transform: scale(1.05);
+    }
+.caption
+    {
+        width: 156px;
+        height: 83px;
+        margin: -90px 1px;
+        font-size: 14px;
+        color: black;
+        word-wrap: break-word;
+        line-height: 15px;
+        padding-bottom: 55px;
+        text-align: center;
+    }
+.caption p
+    {
+        color: floralwhite;
+        width: 160px;
+        padding: 2px;
+        position: absolute;
+        text-decoration: none;
+        transition: transform .2s;
+    }
+.caption p:hover
+    {
+        color: white;
+        transform: scale(1.05);
+    }
+
+    
+    
+    
+</style>    
+    
+<body>
+    <div id="top">Ad Slot</div>
+    
+    <div id="header">
+        <div class="logo"><a href="main.html"><span>HD<span>Movie</span>     </span></a></div>
+    
+        <div class="search-box">
+        <input type="text" value="Search" maxlength="65" onblur="if(this.value == '') {this.value = 'Search'}" onfocus="if(this.value == 'Search') {this.value = ''}"><i class="fa fa-search"></i>
+        </div>
+    
+        <div class="login-register">
+            <div class="login"><i class="fas fa-sign-in-alt"></i></div>
+            <div class="register"><i class="fas fa-user-plus"></i></div>
+        </div>
+    </div>
+    
+    <div id="menu">
+        <ul>
+            <li><a href="main.html">Home Page</a></li>
+            <li><a href="">2020 Movies</a></li>
+            <li><a href="">Coming Soon</a></li>
+            <li><a href="">Top 100</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+    </div>
+    
+    <div id="middle">Ad Slot</div>
+    <div id="content">
+        <div class="content-left">
+            <div class="page-title"><h5>Avengers: Infinity War 2018 Dual Audio Hindi ORG 720p BluRay 1.5GB ESub Download</h5></div>
+            <div class="movie-area">
+                <div class="movie-description">
+                    <img src="Images/Avengers_Infinity_War.jpg">
+                    <h3>Avengers: Infinity War 2018 Dual Audio Hindi ORG 720p BluRay 1.5GB ESub Download</h3>
+                    <p>
+                        IMDB Rating: 8.4/10 <br>
+                        Directed: Anthony Russo, Joe Russo <br>
+                        Released Date: 27 April 2018 (USA) <br>
+                        Genres: Action, Adventure, Sci-Fi <br>
+                        Languages: Hindi ORG + English <br>
+                        Film Stars: Scarlett Johansson, Robert Downey .Jr, Mark Ruffalo, Chris Evans, Benedict Cumberbatch, Chadwick Boseman, Chris Hemsworth, Dave Bautista, Chris Pratt, Tom Holland, Elizabeth Olsen, Zoe Saldana, Tom Hiddleston <br>
+                        Movie Quality: 720p BluRay <br>
+                        File Size: 1360MB
+                    </p>
+                    
+                    
+                    
+                    <img src="Screenshots/AvengersInfinityWar2018HindiORGDualAudiowww.1kmovies.com720pBluRayESub1.4GB.mkv_thumbs42e2d.jpg" width="400px" id="img2">
+                    <p>
+                        <strong>
+                            <a class="buttn red" href="https://uplinkto.pw/view/pDkpbRmr3s" target="_blank" rel="noopener noreferrer">Single Download Resumable Links List</a>
+                        </strong>
+                    </p>
+                </div>                
+            </div>
+        </div>
+    
+    <div class="content-right">
+        <div class="page-title2"><h5>Movie Robot</h5></div>
+        <div class="alert">You Don't Need To Choose All Of The Options</div>
+        <div class="form">
+            <form>
+                <select>
+                    <option>- Movie Style -</option>
+                    <option>English Dubbing</option>
+                    <option>English Subtitle</option>
+                </select>
+                
+                <select>
+                    <option>- Movie Types -</option>
+                    <option>Action</option>
+                    <option>Animation</option>
+                    <option>Adventure</option>
+                    <option>Biography</option>
+                    <option>Comedy</option>
+                    <option>Crime</option>
+                    <option>Documentary</option>
+                    <option>Drama</option>
+                    <option>Fantasy</option>
+                    <option>Family</option>
+                    <option>History</option>
+                    <option>Horror</option>
+                    <option>Music</option>
+                    <option>Musical</option>
+                    <option>Mystery</option>
+                    <option>Romance</option>
+                    <option>Sci-Fi</option>
+                    <option>Thriller</option>
+                    <option>War</option>
+                    <option>Western</option>
+                </select>
+                
+                
+                <select>
+                    <option>- Year Of Film</option>
+                    <option>2020</option>
+                    <option>2019</option>
+                    <option>2018</option>
+                    <option>2017</option>
+                    <option>2016</option>
+                    <option>2015</option>
+                    <option>2014</option>
+                    <option>2013</option>
+                    <option>2012</option>
+                    <option>2011</option>
+                    <option>2010</option>
+                    <option>2009</option>
+                    <option>2008</option>
+                    <option>2007</option>
+                    <option>2006</option>
+                    <option>2005</option>
+                    <option>2004</option>
+                    <option>2003</option>
+                    <option>2002</option>
+                    <option>2001</option>
+                    <option>2000</option>
+                    <option>1999</option>
+                    <option>1998</option>
+                    <option>1997</option>
+                    <option>1996</option>
+                    <option>1995</option>
+                    <option>1994</option>
+                    <option>1993</option>
+                    <option>1992</option>
+                    <option>1991</option>
+                    <option>1990</option>
+                </select>
+                
+                <select>
+                    <option>- IMDB Score -</option>
+                    <option>10 - 9</option>
+                    <option>9 - 8</option>
+                    <option>8 - 7</option>
+                    <option>7 - 6</option>
+                    <option>6 - 5</option>
+                </select>
+                
+                <select>
+                    <option>- Film Quality -</option>
+                    <option>1080p</option>
+                    <option>720p</option>
+                    <option>480p</option>
+                </select>
+                <div id="buttons">
+                    <button class="subbtn" type="submit">Show Movies</button>
+                    <button class="resbtn" type="reset">Reset</button>
+                    
+                </div>
+            </form>
+        </div>
+        
+        
+        
+    <div class="page-title2" id="active"><h5>Movie Types</h5></div>
+    <div id="Movie-Types" type="label">
+        <ul>
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Animation</a></li>
+            <li><a href="#">Adventure</a></li>
+            <li><a href="#">Biography</a></li>
+            <li><a href="#">Comedy</a></li>
+            <li><a href="#">Crime</a></li>
+            <li><a href="#">Documentary</a></li>
+            <li><a href="#">Drama</a></li>
+            <li><a href="#">Fantasy</a></li>
+            <li><a href="#">Family</a></li>
+            <li><a href="#">History</a></li>
+            <li><a href="#">Horror</a></li>
+            <li><a href="#">Music</a></li>
+            <li><a href="#">Musical</a></li>
+            <li><a href="#">Mystery</a></li>
+            <li><a href="#">Romance</a></li>
+            <li><a href="#">Sci-Fi</a></li>
+            <li><a href="#">Thriller</a></li>
+            <li><a href="#">War</a></li>
+            <li><a href="#">Western</a></li>
+        </ul>
+        
+    </div>
+        
+        <div class="page-title2" id="active"><h5>Movie Types</h5></div>
+        <div id="Filters">
+        <ul>
+            <li><a href="#">English Dubbing</a></li>
+            <li><a href="#">English Subtitle</a></li>
+            <li><a href="#">Foreign Movies</a></li>
+            <li><a href="#">Local Movies</a></li>
+            <li><a href="#">1080p Movies</a></li>
+            <li><a href="#">720p Movies</a></li>
+            <li><a href="#">480p Movies</a></li>
+            <li><a href="#">IMDB Score</a></li>
+        </ul>
+        
+        </div>
+        
+        <div class="page-title2" id="active"><h5>Movie Types</h5></div>
+        <div id="Movie-Year">
+        <ul>
+            <li><a href="#">2020</a></li>
+            <li><a href="#">2019</a></li>
+            <li><a href="#">2018</a></li>
+            <li><a href="#">2017</a></li>
+            <li><a href="#">2016</a></li>
+            <li><a href="#">2015</a></li>
+            <li><a href="#">2014</a></li>
+            <li><a href="#">2013</a></li>
+            <li><a href="#">2012</a></li>
+            <li><a href="#">2011</a></li>
+            <li><a href="#">2010</a></li>
+            <li><a href="#">2009</a></li>
+            <li><a href="#">2008</a></li>
+            <li><a href="#">2007</a></li>
+            <li><a href="#">2006</a></li>
+            <li><a href="#">2005</a></li>
+            <li><a href="#">2004</a></li>
+            <li><a href="#">2003</a></li>
+            <li><a href="#">2002</a></li>
+            <li><a href="#">2001</a></li>
+            <li><a href="#">2000</a></li>
+            <li><a href="#">1999</a></li>
+            <li><a href="#">1998</a></li>
+            <li><a href="#">1997</a></li>
+            <li><a href="#">1996</a></li>
+            <li><a href="#">1995</a></li>
+            <li><a href="#">1994</a></li>
+            <li><a href="#">1993</a></li>
+            <li><a href="#">1992</a></li>
+            <li><a href="#">1991</a></li>
+            <li><a href="#">1990</a></li>
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+    
+    <div id="pagination">
+        <div class="related">
+            <h5>You May Also Like</h5>
+            <div class="related-movies">
+                <div class="movies">
+                    <a href="John_Wick_Chapter_3_Parabellum.html"><img src="Images/John_Wick_Chapter_3_Parabellum.webp"></a>
+                    <div class="caption">
+                        <a href="John_Wick_Chapter_3_Parabellum.html"><p>John Wick Chapter 3 Parabellum 2019 Hindi ORG Dual Audio 720p BluRay 1.1GB Download</p></a>
+                    </div>
+                </div>
+                
+                <div class="movies">
+                    <a href=""><img src="Images/6_Underground.jpg"></a>
+                    <div class="caption">
+                        <a><p>6 Underground 2020 Hindi ORG Dual Audio 720p BluRay 1.1GB Download</p></a>
+                    </div>
+                </div>
+                
+                <div class="movies">
+                    <a href=""><img src="Images/Angel_Has_Fallen.jpg"></a>
+                    <div class="caption">
+                        <a><p>Angel Has Fallen 2020 Hindi ORG Dual Audio 720p BluRay 1.1GB Download</p></a>
+                    </div>
+                </div>
+                
+                <div class="movies">
+                    <a href=""><img src="Images/Avengers_Endgame.jpg"></a>
+                        <div class="caption">
+                        <a><p>Avengers Endgame 2020 Hindi ORG Dual Audio 720p BluRay 1.1GB Download</p></a>
+                    </div>
+                </div>
+                
+                <div class="movies">
+                    <a href=""><img src="Images/Rambo_Last_Blood.jpg"></a>
+                    <div class="caption">
+                        <a><p>Rambo Last Blood 2020 Hindi ORG Dual Audio 720p BluRay 1.1GB Download</p></a>
+                    </div>
+                </div>
+                
+                <div class="movies">
+                    <a href=""><img src="Images/mission%20impossible.jpg"></a>
+                    <div class="caption">
+                        <a><p>Mission Impossible 2020 Hindi ORG Dual Audio 720p BluRay 1.1GB Download</p></a>
+                    </div>
+                </div>
+                
+                <div class="movies">
+                    <a href=""><img src="Images/Mission_Impossible_Fallout.jpg"></a>
+                    <div class="caption">
+                        <a><p>Mission Impossible Fallout 2020 Hindi ORG Dual Audio 720p BluRay 1.1GB Download</p></a>
+                    </div>
+                </div>
+                
+                <div class="movies">
+                    <a href=""><img src="Images/Bad_Boys_For_Life.jpg"></a>
+                    <div class="caption">
+                        <a><p>Bad Boys For Life 2020 Hindi ORG Dual Audio 720p BluRay 1.1GB Download</p></a>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+    
+     
+    
+</body>    
+</html>
+
